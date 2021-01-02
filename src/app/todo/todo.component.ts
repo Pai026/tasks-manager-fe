@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TodoService } from '../todo.service';
 
 @Component({
@@ -9,19 +10,35 @@ import { TodoService } from '../todo.service';
 export class TodoComponent implements OnInit {
 
   todos:any = []
+  createTodoData:any={}
+  
   constructor(
-    private readonly todoService: TodoService
+    private readonly todoService: TodoService,
+    private readonly router:Router
   ) { }
 
   ngOnInit(): void {
     this.todoService.getTodos()
     .subscribe(
       res =>{
-        console.log(res)
+        
         this.todos = res
       },
       err => console.log(err)
     )
+  }
+
+  createTodo() {
+    this.todoService.createTodo(this.createTodoData).subscribe(
+      res => {
+        
+        this.ngOnInit();
+      },
+      err => {
+        console.log(err)
+      }
+    )
+    console.log(this.createTodoData)
   }
 
 }
