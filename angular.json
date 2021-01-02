@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "Todo-Management-Fe"
+  "defaultProject": "Todo-Management-Fe",
+  "cli": {
+    "analytics": "7766264c-8fc1-417c-9394-d65aba67bd43"
+  }
 }
