@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { ToastService } from '../toast.service';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +17,8 @@ export class RegisterComponent implements OnInit {
   }
   constructor(
     private readonly authService:AuthService,
-    private readonly router:Router
+    private readonly router:Router,
+    private readonly toast:ToastService
   ) { }
 
   ngOnInit(): void {
@@ -28,8 +30,12 @@ export class RegisterComponent implements OnInit {
       res =>{
         console.log(res)
         this.router.navigate(['/login'])
+        this.toast.showSuccessMessage("User Registered Successfully");
       } ,
-      err => console.log(err)
+      err => {
+        console.log(err)
+        this.toast.showErrorMessage(err.error.message)
+      }
     );
   }
 }
