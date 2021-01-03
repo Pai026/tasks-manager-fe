@@ -8,8 +8,8 @@ import { TodoComponent } from './todo/todo.component';
 const routes: Routes = [
   {
     path:'',
-    redirectTo : '/login',
-    pathMatch: 'full'
+    component:TodoComponent,
+    canActivate: [AuthGuard]
   },
   {
     path:"todo",

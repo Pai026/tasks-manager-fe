@@ -19,4 +19,14 @@ export class TodoService {
   createTodo(todo:any) {
     return this.http.post<any>(api._todoApi,todo)
   }
+
+  deleteTodo(id:any) {
+    let _url = api._todoApi+'/'+id
+    return this.http.delete<any>(_url);
+  }
+
+  updateTodo(id:any,status:any){
+    let _url = api._todoApi+'/'+id
+    return this.http.patch<any>(_url,status);
+  }
 }

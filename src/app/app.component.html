@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Eventhub</a>
+  <a class="navbar-brand" href="#">Task Management App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -7,13 +7,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" *ngIf="authService.loggedIn()" routerLink="/todo" routerLinkActive="active">Todos</a>
+        <a class="nav-link" *ngIf="loggedIn()" routerLink="/todo" routerLinkActive="active">Todos</a>
       </li>
     </ul>
     <ul class="navbar-nav">
-        <a class="nav-link" *ngIf="!authService.loggedIn()"  routerLink="/login" routerLinkActive="active">Login</a>
-        <a class="nav-link" *ngIf="!authService.loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>      
-        <a class="nav-link" *ngIf="authService.loggedIn()" (click)="authService.logoutUser()">Logout</a>
+        <a class="nav-link" *ngIf="!loggedIn()"  routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="nav-link" *ngIf="!loggedIn()" routerLink="/register" routerLinkActive="active">Register</a>      
+        <a class="nav-link" *ngIf="loggedIn()" (click)="logout()">Logout</a>
       </ul>
   </div>
 </nav>    

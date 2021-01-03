@@ -12,4 +12,11 @@ export class AppComponent {
   constructor(
     private readonly authService: AuthService
   ){}
+  loggedIn() {
+    return this.authService.loggedIn();
+  }
+
+  logout() {
+    this.authService.logoutUser();
+  }
 }
