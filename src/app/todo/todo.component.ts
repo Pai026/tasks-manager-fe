@@ -66,7 +66,7 @@ export class TodoComponent implements OnInit {
       res=>{
         this.updateTodoData={};
         this.ngOnInit();
-        this.toast.showSuccessMessage("Todo Updated")
+        this.toast.showSuccessMessage("Task Updated")
 
       },
       err => {
