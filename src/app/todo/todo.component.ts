@@ -12,7 +12,8 @@ export class TodoComponent implements OnInit {
   todos:any = []
   createTodoData:any={}
   updateTodoData:any={}
-  
+  currentTodoId="";
+
   constructor(
     private readonly todoService: TodoService,
     private readonly toast:ToastService,
@@ -56,13 +57,17 @@ export class TodoComponent implements OnInit {
     );
   }
 
-  updateTodo(id:any) {
-    console.log(this.updateTodoData);
-    this.todoService.updateTodo(id,this.updateTodoData)
+  updateTodo() {
+    //console.log(this.currentTodoId);
+    //console.log(this.updateTodoData);
+    
+    this.todoService.updateTodo(this.currentTodoId,this.updateTodoData)
     .subscribe(
       res=>{
+        this.updateTodoData={};
         this.ngOnInit();
         this.toast.showSuccessMessage("Todo Updated")
+
       },
       err => {
         console.log(err)
@@ -70,6 +75,9 @@ export class TodoComponent implements OnInit {
       }
     )
 
+  }
+  currentTodoIdUpdate(id:any) {
+    this.currentTodoId=id;
   }
 
 }

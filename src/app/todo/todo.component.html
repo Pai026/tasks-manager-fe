@@ -37,7 +37,7 @@
           <h5 class="card-title">{{todo.title}}</h5>
           <p class="card-text">{{todo.description}}</p>
           <p class="card-text">Status : {{todo.status}}</p>
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@mdo">Update Task Status</button>
+          <button (click)="currentTodoIdUpdate(todo._id)" type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateModal" data-whatever="@mdo">Update Task Status</button>
           <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button type="button" class="btn btn-primary" (click)="updateTodo(todo._id)" data-dismiss="modal">Update Task</button>
+                  <button type="button" class="btn btn-primary" (click)="updateTodo()" data-dismiss="modal">Update Task</button>
                 </div>
               </div>
             </div>
